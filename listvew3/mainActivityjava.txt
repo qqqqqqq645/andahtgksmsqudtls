@@ -1,0 +1,39 @@
+package com.example.a210.myapplication;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class MainActivity extends AppCompatActivity {
+
+    String[] data = {"A","B","C","D"};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        ListView listview;
+        ListViewAdapter adapter;
+
+        //adapter 생성
+        adapter = new ListViewAdapter();
+
+        //리스트뷰 참조 및 Adapter 달기
+        listview = (ListView) findViewById(R.id.listview1);
+        listview.setAdapter(adapter);
+
+        adapter.addItem(getResources().getDrawable(R.drawable.p1),"김관희","010-2333-3333","서울");
+        adapter.addItem(getResources().getDrawable(R.drawable.p2),"박신혜","010-2333-4333","인천");
+        adapter.addItem(getResources().getDrawable(R.drawable.p3),"이동건","010-2433-3333","해남");
+
+
+
+
+    }
+}
